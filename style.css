@@ -1,0 +1,240 @@
+:root {
+  --bg: #012578; /* Mendefinisikan variabel CSS untuk warna latar belakang utama */
+  --alternatif: #0a61cc; /* Mendefinisikan variabel CSS untuk warna alternatif */
+  --font: #ffffff; /* Mendefinisikan variabel CSS untuk warna font */
+  --span: #3c8bf5;
+}
+
+* {
+  margin: 0; /* Mengatur margin semua elemen menjadi 0 */
+  padding: 0; /* Mengatur padding semua elemen menjadi 0 */
+  box-sizing: border-box; /* Mengatur ukuran kotak elemen agar mencakup padding dan border */
+  outline: none; /* Menghapus outline pada semua elemen */
+  border: none; /* Menghapus border pada semua elemen */
+  text-decoration: none; /* Menghapus dekorasi teks pada semua elemen */
+}
+
+body {
+  font-family: "Poppins", sans-serif; /* Mengatur font utama body menjadi Poppins, dengan sans-serif sebagai cadangan */
+  background-color: var(
+    --bg
+  ); /* Mengatur warna latar belakang body menggunakan variabel CSS alternatif */
+  color: #ffffff; /* Mengatur warna teks utama menjadi putih */
+}
+
+/* navbar */
+.navbar {
+  display: flex; /* Menggunakan flexbox untuk elemen navbar untuk memudahkan penyusunan elemen di dalamnya */
+  justify-content: space-between; /* Membuat ruang di antara elemen logo dan nav, menempatkan logo di kiri */
+  align-items: center; /* Menyelaraskan elemen secara vertikal di tengah */
+  padding: 1.4rem 4%; /* Memberikan padding pada navbar: 1.4rem di atas dan bawah, 4% di kiri dan kanan */
+  background-color: rgba(
+    10,
+    97,
+    204,
+    0.8
+  ); /* Warna latar belakang navbar dengan sedikit transparansi */
+  border-bottom: 1px solid #ffffff; /* Menambahkan garis bawah putih pada navbar */
+  position: fixed; /* Menetapkan posisi navbar agar tetap di bagian atas halaman meskipun di-scroll */
+  top: 0; /* Menetapkan posisi atas navbar ke 0 */
+  left: 0; /* Menetapkan posisi kiri navbar ke 0 */
+  right: 0; /* Menetapkan posisi kanan navbar ke 0 */
+  z-index: 9999; /* Menetapkan z-index yang tinggi agar navbar selalu di depan elemen lain */
+}
+
+.navbar .navbar-logo {
+  display: flex; /* Menggunakan flexbox untuk elemen logo agar mudah diatur */
+  justify-content: left; /* Menyelaraskan konten logo ke kiri */
+  align-items: center; /* Menyelaraskan konten logo secara vertikal di tengah */
+  font-size: 2rem; /* Mengatur ukuran font logo */
+  font-weight: 600; /* Mengatur ketebalan font logo */
+  font-style: italic; /* Mengatur gaya font miring untuk logo */
+  color: #ffffff; /* Warna teks logo putih */
+}
+
+.navbar .navbar-logo span {
+  margin-left: 0.5rem; /* Memberikan jarak 0.5rem di sebelah kiri elemen span */
+  font-weight: 700; /* Mengatur ketebalan font pada elemen span dalam logo */
+  color: var(
+    --span
+  ); /* Mengatur warna teks span dalam logo menggunakan variabel CSS */
+}
+
+.navbar .navbar-logo span:hover {
+  transition: 0.2s; /* Menambahkan transisi selama 0.2 detik saat elemen span di-hover */
+  color: #ffffff; /* Mengubah warna teks span menjadi putih saat di-hover */
+}
+
+.navbar .navbar-nav {
+  display: flex; /* Menggunakan flexbox untuk elemen navbar-nav agar item di dalamnya mudah diatur */
+  justify-content: center; /* Menyelaraskan item di dalam navbar-nav ke tengah secara horizontal */
+  align-items: center; /* Menyelaraskan item di dalam navbar-nav secara vertikal di tengah */
+  margin: 0 auto; /* Memberikan margin otomatis di kiri dan kanan untuk menempatkan navbar-nav di tengah */
+}
+
+.navbar .navbar-nav a {
+  color: #ffffff; /* Warna teks link navigasi putih */
+  display: inline-block; /* Menetapkan elemen link navigasi sebagai inline-block untuk memungkinkan pengaturan margin dan padding */
+  font-weight: 700;
+  font-size: 1rem; /* Mengatur ukuran font link navigasi */
+  margin: 0 1rem; /* Memberikan margin 1rem di kiri dan kanan link navigasi */
+  transition: color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1); /* Menambahkan transisi dengan durasi lebih panjang dan fungsi cubic-bezier */
+}
+
+.navbar .navbar-nav a:hover {
+  color: #011559; /* Mengubah warna teks link navigasi saat di-hover menjadi warna alternatif yang ditentukan oleh variabel CSS */
+}
+
+.navbar .navbar-nav a::after {
+  content: ""; /* Menambahkan elemen pseudo setelah setiap link navigasi */
+  display: block; /* Menampilkan elemen pseudo sebagai blok, memungkinkan pengaturan ukuran dan margin */
+  padding-bottom: 0.5rem; /* Memberikan padding bawah sebesar 0.5rem untuk memberikan ruang sebelum border */
+  border-bottom: 0.1rem solid var(--font); /* Menambahkan garis bawah dengan ketebalan 0.1rem dan warna yang ditentukan oleh variabel CSS */
+  transform: scaleX(
+    0
+  ); /* Mengatur skala horizontal elemen pseudo menjadi 0, sehingga tidak terlihat */
+  transition: 0.5s linear; /* Menambahkan transisi selama 0.8 detik dengan fungsi timing linear */
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(
+    1
+  ); /* Mengubah skala horizontal elemen pseudo menjadi 1 saat link di-hover, membuat garis bawah terlihat penuh */
+}
+
+#typing-effect {
+  display: inline; /* Pastikan elemen tetap berada dalam satu baris */
+  white-space: nowrap; /* Mencegah teks untuk membungkus ke baris berikutnya */
+}
+
+.typed-cursor {
+  display: inline; /* Menjaga agar kursor berada pada baris yang sama dengan teks */
+  margin-left: 0; /* Pastikan margin kiri kursor 0 */
+  opacity: 1; /* Pastikan kursor terlihat jelas */
+  transition: opacity 0.3s ease; /* Efek transisi untuk kursor */
+}
+
+/* hero section */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+/* Animasi untuk masuk dari kanan */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-right {
+  opacity: 0; /* Awalnya tidak terlihat */
+}
+
+.animate-right.show {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.animate-left {
+  opacity: 0; /* Awalnya tidak terlihat */
+}
+
+.animate-left.show {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.hero {
+  min-height: 100vh; /* Mengatur tinggi minimum menjadi tinggi penuh viewport */
+  display: flex; /* Menggunakan flexbox untuk layout */
+  align-items: center; /* Melakukan alignment item secara vertikal ke tengah */
+}
+
+.hero .content {
+  padding: 1.4rem 5%; /* Padding di sekitar konten */
+  max-width: 60rem; /* Lebar maksimum untuk konten */
+}
+
+.hero .content h1,
+h2 {
+  font-size: 2rem; /* Ukuran font untuk elemen h1 */
+  color: #ffffff; /* Warna teks */
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.778); /* Efek bayangan teks */
+  line-height: 1; /* Tinggi baris */
+}
+
+.hero .content h2 {
+  display: block; /* Membuat span menjadi elemen blok */
+  margin-top: 10px; /* Margin di atas elemen span */
+  color: rgba(10, 97, 204, 0.785); /* Warna teks dengan transparansi */
+}
+
+.hero .content p {
+  font-size: 1.3rem; /* Ukuran font untuk elemen paragraf */
+  margin-top: 1rem; /* Margin di atas paragraf */
+  line-height: 1.4; /* Tinggi garis */
+  font-weight: 50; /* Berat font (perbaikan: seharusnya 'font-weight' memiliki nilai valid seperti 'normal' atau 'bold') */
+  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.778); /* Efek bayangan teks */
+  padding-right: 5rem;
+}
+
+.sosial {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Menambahkan jarak antara ikon */
+  padding: 10px 0;
+  margin-top: 2rem; /* Memberikan jarak antara p dan sosial */
+}
+
+.sosial a {
+  color: white; /* Warna ikon */
+  text-decoration: none; /* Menghapus garis bawah pada link */
+  transition: transform 0.3s ease; /* Transisi untuk efek hover */
+}
+
+.sosial a:hover {
+  transform: scale(1.2); /* Membesarkan ikon saat hover */
+}
+
+/* Gaya untuk kontainer gambar */
+.row {
+  display: flex;
+  justify-content: center; /* Memusatkan gambar secara horizontal */
+  align-items: center; /* Memusatkan gambar secara vertikal jika kontainer memiliki tinggi tertentu */
+  padding: 20px; /* Memberi jarak sekitar kontainer */
+  margin-left: 4rem;
+}
+
+/* Gaya untuk gambar */
+.row img {
+  max-width: 100%; /* Memastikan gambar tidak melebihi lebar kontainer */
+  height: auto; /* Menjaga rasio aspek gambar */
+  border-radius: 8px; /* Memberi sudut melengkung pada gambar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan untuk efek kedalaman */
+  transition: transform 0.3s ease; /* Menambahkan transisi halus untuk efek hover */
+}
+
+/* Efek hover pada gambar */
+.row img:hover {
+  transform: scale(1.05); /* Memperbesar gambar sedikit saat hover */
+}
+
+footer .credit {
+  display: flex;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+footer .credit a {
+  color: var(--span);
+  font-weight: 700;
+}
